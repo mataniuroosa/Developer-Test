@@ -30,3 +30,79 @@ A local git repository is used with commits/branches and git bundle is used to s
 repository back to the ByzGen team
 The candidate has a chance to present back to the ByzGen team the solution and key
 thinking around development of the codebase
+
+
+++++++++++++++++++++++Project Development Information++++++++++++++++++++s
+
+
+The Project is developed using blockchain technology on hyperledger fabric 2.0 with update network , chaincode installation and new chaincode is add in this system on Golang.
+
+
+----------------+++++The Folder Structure++++++---------------------
+1. Appointment_project
+   1. BasicNetwork-2.0-Appointment
+      1. artifacts
+        1. channel
+        2. src
+      2. client
+      3. connection
+      4. .createchannel.sh.swp
+      5. .generate.sh.swp
+      6. createChannel.sh
+      7. deploychaincode.sh
+      8. envVar.sh
+      9. generate.sh
+      10. installchaincode.sh
+      11. log.txt
+      12. start_network.sh
+      13. teardown.sh
+   2. frontend
+      1. e2e
+      2. node_modules
+      3. src
+   3. prereqs-ubuntu.sh
+
+----------------+++++The Network Structure++++++---------------------
+1. Two organzation
+2. Three Orderer Srevices
+3. Two CA
+4. Two Peer in each organzation
+5. Four Coucdb
+
+
+====================================== Steps to Run Project===============================================
+
+===============Backend Part======================
+1. To Generate Certificate and Cryto Material
+   #command
+   1. cd BasicNetwork-2.0-Appointment
+   ./generate.sh
+
+2. To Start Network
+    #command
+    1. ./start_network.sh 
+ 
+3. To Install Chaincode 
+    #command
+    1. ./install.chaincode.sh
+
+================ Start Rest API's in Client Folder =====================
+
+1. go to client folder
+    #command
+    1. cd BasicNetwork-2.0-Appointment/client
+    2. rm -r wallet/*
+    3. npm install 
+    4. node enrollAdminOrg1.js
+    5. node enrollAdminOrg2.js
+    6. node registersystem.js
+    7. nodemon app.js
+
+====================Start Frontend   Part================
+#command
+1. cd frontend
+2. ng serve
+
+
+Open Broweser and write URL:localhost:4200 
+The UserInterface is Running. 
