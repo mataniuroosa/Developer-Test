@@ -1,0 +1,92 @@
+<br><br>
+<div class="container    " >
+        <div class="row ">
+            <div class="col-xl-10 col-lg-12 col-md-9 " >
+            <hr>
+            <form class="login100-form validate-form flex-sb flex-w" [formGroup]="searchForm" (ngSubmit)="search()">
+                <div class=" wrap-input100 validate-input m-b-16 alert alert-success" role="alert" *ngIf="toggle_message=='success'">
+                    {{message}}
+                  </div>
+                  <div class="wrap-input100 validate-input m-b-16 alert alert-danger" role="alert" *ngIf="toggle_message=='fail'">
+                  {{message}}
+                  </div>
+                <span class="login100-form-title p-b-51">
+                    Search Transaction
+                </span>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="wrap-input100 validate-input m-b-16">
+                            <input class="input100" type="text" formControlName ="appointment_id" placeholder="Transaction Id">
+                            <span class="focus-input100"*ngIf="appointment_id.touched && appointment_id.invalid ">
+                                <p *ngIf="(!appointment_id.valid && appointment_id.errors.required)">Transation ID is required</p>
+                            </span>
+                        </div>
+                         
+                    </div>
+                    <div class="col-md-4">
+                        <button   type="submit"  [disabled]="!searchForm.valid"class="login100-form-btn">
+                            Search Appointment
+                        </button>
+                    </div>
+                </div>
+            </form>
+                <form class="login100-form validate-form flex-sb flex-w" [formGroup]="transactionForm" (ngSubmit)="update()"*ngIf="resultFound">
+
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Created By (Organization)</span>
+
+                    <input class="input100" type="text"formControlName ="org" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Created By (User Id)</span>
+
+                    <input class="input100" type="text"formControlName ="from"readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Created To (Organization)</span>
+
+                    <input class="input100" type="text"formControlName ="to"  readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Creation Date</span>
+
+                    <input class="input100" type="text"formControlName ="date"  readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                                  
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span *ngIf="!(!content.valid && content.errors.required)">Appointment Purpose</span>
+
+                    <input class="input100" type="text" formControlName ="content" >
+                    <span class="focus-input100"*ngIf="content.touched && content.invalid ">
+                        <p *ngIf="(!content.valid && content.errors.required)">Purpose is required</p>
+                    </span>                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Last Updated By</span>
+
+                    <input class="input100" type="text" formControlName ="updatedbyuserId" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Last Updated Organization</span>
+
+                    <input class="input100" type="text" formControlName ="updatedbyorg" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                   
+                <div class="container-login10-form-btn m-t-17">
+                    <button   type="submit"  [disabled]="!transactionForm.valid"class="login100-form-btn">
+                        update
+                    </button>
+                </div>                      
+                
+            </form>
+            </div>
+    
+        </div>
+    
+</div>
+    

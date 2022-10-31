@@ -1,0 +1,65 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+
+            <form class="login100-form validate-form flex-sb flex-w" [formGroup]="userForm" (ngSubmit)="submit()">
+                <div class=" wrap-input100 validate-input m-b-16 alert alert-success" role="alert" *ngIf="toggle_message=='success'">
+                    {{message}}
+                  </div>
+                  <div class="wrap-input100 validate-input m-b-16 alert alert-danger" role="alert" *ngIf="toggle_message=='fail'">
+                  {{message}}
+                  </div>
+                <span class="login100-form-title p-b-51">
+                    Register User
+                </span>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+                    <input class="input100" type="text" formControlName ="name" placeholder="Username">
+                    <span class="focus-input100"  *ngIf="name.touched && name.invalid ">
+                        <p *ngIf="(!name.valid && name.errors.required)">Name is required</p>
+                   </span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
+                    <input class="input100" type="text" formControlName ="user_id" placeholder="Email">
+                    <span class="focus-input100"  *ngIf="user_id.touched && user_id.invalid ">
+                        <p *ngIf="(!user_id.valid && user_id.errors.required)">User ID is required</p>
+                        <p *ngIf=user_id.errors?.notUnique> User Id Already Exist</p>
+
+                   </span>
+                </div>
+                
+                
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+                    <input class="input100" type="password"formControlName ="password" placeholder="Password">
+                    <span class="focus-input100"  *ngIf="password.touched && password.invalid ">
+                        <p *ngIf="(!password.valid && password.errors.required)">Password is required</p>
+                   </span>
+                </div>
+                
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Organization is required">
+                    <select class="input100" id="org" formControlName ="org">
+                        <option selected value="">Select Organization </option>
+                        <option value="org1">Organization 1</option>
+                        <option value="org2">Organization 2</option>
+                      </select>
+                      <span class="focus-input100"  *ngIf="org.touched && org.invalid ">
+                        <p *ngIf="(!org.valid && org.errors.required)">Organization is required</p>
+                   </span>
+                </div>
+                
+                <div class="container-login100-form-btn m-t-17">
+                    <button type="submit"  [disabled]="!userForm.valid" class="login100-form-btn">
+                        Create User
+                    </button>
+                </div>
+ 
+                <div class="container-login100-form-btn m-t-17">
+                    <button (click)="login()" class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
