@@ -1,0 +1,45 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <form class="login100-form validate-form flex-sb flex-w" [formGroup]="userForm" (ngSubmit)="submit()">
+                <span class="login100-form-title p-b-51">
+                    Login
+                </span>
+                <div class="wrap-input100 validate-input m-b-16 alert alert-danger" role="alert"*ngIf="toggle_message" >
+                    {{message}}
+                  </div>
+                
+                <div class="wrap-input100 validate-input m-b-16"   data-validate = "Username is required">
+                    <input class="input100" type="text"formControlName ="user_id"placeholder="Username">
+                    <span class="focus-input100"  *ngIf="user_id.touched && user_id.invalid ">
+                        <p *ngIf="(!user_id.valid && user_id.errors.required)">User ID is required</p>
+                   </span>
+     
+                </div>
+                
+                
+                <div class="wrap-input100 validate-input m-b-16"   data-validate = "Password is required">
+                    <input class="input100" type="password" formControlName ="password" placeholder="Password">
+                    <span class="focus-input100"*ngIf="password.touched && password.invalid ">
+                        <p *ngIf="(!password.valid && password.errors.required)">Password is required</p>
+                    </span>
+                
+
+                </div>
+                
+
+                <div class="container-login100-form-btn m-t-17">
+                    <button   type="submit"  [disabled]="!userForm.valid"class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" (click)="register()">
+                        Register
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

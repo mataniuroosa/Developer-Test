@@ -1,0 +1,67 @@
+<br><br>
+<div class="container    " >
+        <div class="row ">
+            <div class="col-xl-10 col-lg-12 col-md-9 " >
+            <hr>
+            <form class="login100-form validate-form flex-sb flex-w" [formGroup]="transactionForm" (ngSubmit)="submit()">
+                <div class=" wrap-input100 validate-input m-b-16 alert alert-success" role="alert" *ngIf="toggle_message=='success'">
+                    {{message}}
+                  </div>
+                  <div class="wrap-input100 validate-input m-b-16 alert alert-danger" role="alert" *ngIf="toggle_message=='fail'">
+                  {{message}}
+                  </div>
+                <span class="login100-form-title p-b-51">
+                    Create Appointment
+                </span>
+            
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Appointment Id is required">
+                    <input class="input100" type="text"formControlName ="appointment_id" placeholder="Appointment Id">
+                    <span class="focus-input100"*ngIf="appointment_id.touched && appointment_id.invalid ">
+                        <p *ngIf="(!appointment_id.valid && appointment_id.errors.required)">Appointment ID is required</p>
+                    </span>
+                </div>
+                
+            
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Organization is required">
+                    <select class="input100" id="org" formControlName ="to">
+                        <option selected value="">Select To </option>
+                        <option value="org1">{{org=='org1' ? "Some Organization":'org1'}}</option>
+                        <option value="org2">{{org=='org2' ? "Some Organization":'org2'}}</option>
+                      </select>
+                      <span class="focus-input100"  *ngIf="to.touched && to.invalid ">
+                        <p *ngIf="(!to.valid && to.errors.required)">Organization is required</p>
+                   </span>
+                </div>
+                
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "From is required">
+                    <input class="input100" type="text" formControlName ="from" placeholder="From" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Date is required">
+                    <input class="input100" type="date" formControlName ="date" placeholder="Date">
+                    <span class="focus-input100"*ngIf="date.touched && date.invalid ">
+                        <p *ngIf="(!date.valid && date.errors.required)">Date is required</p>
+                    </span>
+                </div>
+                 
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Content is required">
+                    <input class="input100" type="text" formControlName ="content" placeholder="Purpose">
+                    <span class="focus-input100"*ngIf="content.touched && content.invalid ">
+                        <p *ngIf="(!content.valid && content.errors.required)">Purpose is required</p>
+                    </span>
+                </div>
+                 
+ 
+                <div class="container-login50-form-btn m-t-10">
+                    <button  type="submit" [disabled]="!transactionForm.valid" class="login100-form-btn">
+                        Create Appointment
+                    </button>
+                </div>
+                
+            </form>
+            </div>
+    
+        </div>
+    
+</div>
+    

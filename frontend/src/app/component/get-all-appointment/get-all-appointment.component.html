@@ -1,0 +1,52 @@
+<br><br>
+<div class="container    " >
+        <div class="row ">
+            <div class="col-xl-10 col-lg-12 col-md-9 " >
+            <hr>
+            <form class="login100-form validate-form flex-sb flex-w">
+                <span class="login100-form-title p-b-51">
+                    All Transaction
+                </span>
+                <form class="login100-form validate-form flex-sb flex-w" [formGroup]="transactionForm">
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Organization is required">
+                  <select class="input100" id="org" (change)="getTransation()" formControlName ="transation_type">
+                      <option selected value="" >Select Appointment Organization </option>
+                      <option value="org1">{{org=='org1' ? "Some Organization":'org1'}}</option>
+                      <option value="org2">{{org=='org2' ? "Some Organization":'org2'}}</option>
+                    </select>
+                    <span class="focus-input100"  *ngIf="transation_type.touched && transation_type.invalid ">
+                      <p *ngIf="(!transation_type.valid && transation_type.errors.required)">Organization is required</p>
+                 </span>
+                </div>
+                </form>
+                <table class="table" *ngIf="showresult">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Appointment ID</th>
+                        <th scope="col">View Detials</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor='let sub of data;let i = index'> 
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{sub}}</td>
+                        <td>               
+                                <button class="btn" (click)="getDetails(sub)" style="background-color: #827ffe;color:white;">
+                                    View
+                                </button>
+                        </td>
+                      </tr>
+    
+                    </tbody>
+                  </table>
+                  
+           
+            </form>
+            </div>
+    
+        </div>
+    
+</div>
+    

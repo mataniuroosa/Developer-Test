@@ -1,0 +1,67 @@
+<br><br>
+<div class="container    " >
+        <div class="row ">
+            <div class="col-xl-10 col-lg-12 col-md-9 " >
+            <hr>
+            <form class="login100-form validate-form flex-sb flex-w"  [formGroup]="transactionForm" *ngIf="resultFound">
+                <span class="login100-form-title p-b-51">
+                    Appointment Details
+                </span>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment ID</span>
+
+                    <input class="input100" type="text"formControlName ="appointmentid" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Created By (Organization)</span>
+
+                    <input class="input100" type="text"formControlName ="org" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Created By (User Id)</span>
+
+                    <input class="input100" type="text"formControlName ="from"readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Created To (Organization)</span>
+
+                    <input class="input100" type="text"formControlName ="to"  readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Creation Date</span>
+
+                    <input class="input100" type="text"formControlName ="date"  readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                                  
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Purpose</span>
+
+                    <input class="input100" type="text" formControlName ="content" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Last Updated By</span>
+
+                    <input class="input100" type="text" formControlName ="updatedbyuserId" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <span>Appointment Last Updated Organization</span>
+
+                    <input class="input100" type="text" formControlName ="updatedbyorg" readonly>
+                    <span class="focus-input100"></span>
+                </div>
+    
+            </form>
+
+            </div>
+    
+        </div>
+    
+</div>
+    
