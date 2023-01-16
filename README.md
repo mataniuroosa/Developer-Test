@@ -1,6 +1,6 @@
 # Developer-Test
  
-The Test is provided by the Company. The Challenge is written below in Detail. 
+The Challenge is written below in Detail. 
 
 **The Challenge**
 
